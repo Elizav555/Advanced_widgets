@@ -1,12 +1,27 @@
 import 'dart:math';
 
+import 'package:advanced_widgets/utils/extencions.dart';
+
 import '../theme/app_themes.dart';
 
 class AppState {
-  var themeType = ThemeType.light;
-  final weatherState = Random().nextDouble();
+  late ThemeType themeType;
 
-  String get weatherDesc {
+  final weatherState = Random().nextDouble().toPrecision(1);
+
+  late final String weatherDesc;
+
+  AppState() {
+    themeType = _getRandomTheme();
+    weatherDesc = _formWeatherDesc();
+  }
+
+  ThemeType _getRandomTheme() {
+    var randomValueIndex = Random().nextInt(ThemeType.values.length - 1);
+    return ThemeType.values[randomValueIndex];
+  }
+
+  String _formWeatherDesc() {
     final temp = Random().nextInt(30);
     if (weatherState < 0.4) {
       return "Sunny $temp°";

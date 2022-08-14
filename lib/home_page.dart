@@ -1,6 +1,7 @@
 import 'package:advanced_widgets/state/app_state_notifier.dart';
 import 'package:advanced_widgets/theme/app_themes.dart';
 import 'package:advanced_widgets/widgets/my_theme_widget.dart';
+import 'package:advanced_widgets/widgets/weather_indicator_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -40,11 +41,24 @@ class MyHomePage extends StatelessWidget {
               ),
               body: Center(
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: const <Widget>[
-                    Text(
-                      'You have pushed the button this many times:',
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(64.0),
+                      child: WeatherWidget(
+                        weatherState: state.weatherState,
+                      ),
                     ),
+                    Text(state.weatherState.toString()),
+                    MaterialButton(
+                      color: MyTheme.of(innerContext).primaryColor,
+                      onPressed:
+                          context.read<AppStateNotifier>().regenerateState,
+                      child: const Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: Text("Regenerate"),
+                      ),
+                    )
                   ],
                 ),
               ),

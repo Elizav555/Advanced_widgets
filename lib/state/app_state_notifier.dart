@@ -10,4 +10,9 @@ class AppStateNotifier with ChangeNotifier {
     state.themeType = type;
     notifyListeners();
   }
+
+  void regenerateState() {
+    state = AppState();
+    notifyListeners();
+  }
 }
