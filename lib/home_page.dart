@@ -43,13 +43,11 @@ class MyHomePage extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.all(64.0),
-                      child: WeatherWidget(
-                        weatherState: state.weatherState,
-                      ),
+                    WeatherWidget(
+                      weatherState: state.weatherState,
+                      weatherDesc: state.weatherDesc,
                     ),
-                    Text(state.weatherState.toString()),
+                    Text("Weather state : ${state.weatherState}"),
                     MaterialButton(
                       color: MyTheme.of(innerContext).primaryColor,
                       onPressed:
