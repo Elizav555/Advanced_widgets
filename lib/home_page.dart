@@ -39,13 +39,16 @@ class MyHomePage extends StatelessWidget {
                       }),
                 ],
               ),
-              body: Center(
+              body: SafeArea(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    WeatherWidget(
-                      weatherState: state.weatherState,
-                      weatherDesc: state.weatherDesc,
+                    Padding(
+                      padding: const EdgeInsets.only(right: 32.0, left: 32.0),
+                      child: WeatherWidget(
+                        weatherState: state.weatherState,
+                        weatherDesc: state.weatherDesc,
+                      ),
                     ),
                     Text("Weather state : ${state.weatherState}"),
                     MaterialButton(

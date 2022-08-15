@@ -16,6 +16,7 @@ class MyApp extends StatelessWidget {
     return ChangeNotifierProvider<AppStateNotifier>(
       create: (_) => AppStateNotifier(),
       child: const MaterialApp(
+        debugShowCheckedModeBanner: false,
         title: 'Weather App',
         home: MyHomePage(title: 'Weather App Home Page'),
       ),

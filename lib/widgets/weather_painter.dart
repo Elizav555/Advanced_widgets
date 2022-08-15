@@ -15,7 +15,7 @@ class WeatherPainter extends CustomPainter {
       ..color = Colors.white
       ..style = PaintingStyle.fill;
     final rect = Rect.fromCenter(
-        center: Offset(centerX, centerY), width: 200, height: 150);
+        center: Offset(centerX, centerY), width: 160, height: 120);
 
     canvas.drawOval(rect, backPainter);
 
