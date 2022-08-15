@@ -38,7 +38,7 @@ class _WeatherWidgetState extends State<WeatherWidget> {
                         painter: WeatherPainter(state: widget.weatherState),
                       ),
                       const Padding(padding: EdgeInsets.only(top: 80.0)),
-                      InnerShadow(
+                      TextShadow(
                         shadows: [
                           Shadow(
                               color: Theme.of(context)

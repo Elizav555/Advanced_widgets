@@ -3,8 +3,8 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
-class InnerShadow extends SingleChildRenderObjectWidget {
-  const InnerShadow({
+class TextShadow extends SingleChildRenderObjectWidget {
+  const TextShadow({
     Key? key,
     this.shadows = const <Shadow>[],
     Widget? child,
@@ -14,19 +14,18 @@ class InnerShadow extends SingleChildRenderObjectWidget {
 
   @override
   RenderObject createRenderObject(BuildContext context) {
-    final renderObject = _RenderInnerShadow();
+    final renderObject = _RenderShadow();
     updateRenderObject(context, renderObject);
     return renderObject;
   }
 
   @override
-  void updateRenderObject(
-      BuildContext context, _RenderInnerShadow renderObject) {
+  void updateRenderObject(BuildContext context, _RenderShadow renderObject) {
     renderObject.shadows = shadows;
   }
 }
 
-class _RenderInnerShadow extends RenderProxyBox {
+class _RenderShadow extends RenderProxyBox {
   late List<Shadow> shadows;
 
   @override
